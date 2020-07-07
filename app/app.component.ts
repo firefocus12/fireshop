@@ -18,13 +18,7 @@ export class AppComponent {
     this.initializeApp();
     
     const firebaseConfig = {
-      apiKey: "AIzaSyAxn25HSuG0DFzqrbCq9ic9aq7gBCuZOMk",
-      authDomain: "chat-5070a.firebaseapp.com",
-      databaseURL: "https://chat-5070a.firebaseio.com",
-      projectId: "chat-5070a",
-      storageBucket: "chat-5070a.appspot.com",
-      messagingSenderId: "481797160079",
-      appId: "1:481797160079:web:1ca2338291eed824"
+      //conif your firebase
     };
     firebase.initializeApp(firebaseConfig);
   }
