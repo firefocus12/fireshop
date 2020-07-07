@@ -1,0 +1,37 @@
+<ion-app>
+  <ion-router-outlet>
+    <!-- 
+    <ion-split-pane contentId="menu-content" >
+      <ion-menu contentId="menu-content" menuId="menu-content" side="start">        
+        <ion-content>
+          
+  <ion-list-header>
+    <ion-label>Profile</ion-label>
+  </ion-list-header>
+  <ion-item (click)="this.nav.navigateRoot('/home')" button>
+    <ion-avatar slot="start">
+      <img src="{{dp}}" alt="" />
+    </ion-avatar>
+    <ion-label>
+      <h2>{{name}}</h2>
+      <p>{{username}}</p>
+    </ion-label>
+  </ion-item>
+  <ion-list-header>
+    <ion-label>Chats</ion-label>
+  </ion-list-header>
+  <ion-item *ngFor="let user of users" button (click)="gotoChat(user.uid,user.name,user.username,user.dp)">
+    <ion-avatar slot="start">
+      <img src="{{user.dp}}" alt="" />
+    </ion-avatar>
+    <ion-label>
+      <h2>{{user.name}}</h2>
+      <p>{{"@"+user.username}}</p>
+    </ion-label>
+  </ion-item>
+        </ion-content>
+      </ion-menu>
+      <ion-router-outlet id="menu-content"></ion-router-outlet>
+    </ion-split-pane> -->
+  </ion-router-outlet>
+</ion-app>

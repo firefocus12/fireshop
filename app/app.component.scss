@@ -1,0 +1,18 @@
+* {
+    font-weight: bold;
+  }
+  
+  ion-item {
+    ion-label {
+      ion-avatar {
+        img {
+          background-color: lightgray;
+        }
+      }
+  
+      h2,
+      p {
+        font-weight: bold;
+      }
+    }
+  }

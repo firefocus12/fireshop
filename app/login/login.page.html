@@ -1,0 +1,72 @@
+<ion-content class="ion-padding ion-text-center">
+  <img src="/assets/logo.jpg" alt="" class="logo">
+  <h2>
+    FireShop
+  </h2>
+  <p>Buy everything you want!</p>
+
+  <!-- Recaptcha Container -->
+  <div id="recaptcha-container" style="display: none;"></div>
+
+  <!-- Phone Number Content -->
+  <div *ngIf="!otpSent">
+    <ion-item>
+      <ion-button slot="start" mode="ios" fill="clear" (click)="showCodes()" class="countryCodeBtn">
+        {{code}}
+        <ion-icon name="chevron-down-outline" slot="end"></ion-icon>
+      </ion-button>
+      <ion-label position="floating">Phone Number</ion-label>
+      <ion-input id="phoneNumber"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label>
+        <ion-note>
+          An OTP will be sent to given phone number
+        </ion-note>
+      </ion-label>
+    </ion-item>
+
+    <ion-button (click)="sendOTP()" expand="block" *ngIf="!spin">
+      Send OTP
+    </ion-button>
+
+    <div class="ion-text-center" *ngIf="spin">
+      <ion-spinner color="primary"></ion-spinner>
+    </div>
+  </div>
+
+  <!-- OTP Content -->
+  <div *ngIf="otpSent">
+    <ion-item>
+      <ion-label position="floating">6-Digit OTP</ion-label>
+      <ion-input id="otp"></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>
+        <ion-note>
+          An OTP sent to {{phoneNumber}}
+        </ion-note>
+      </ion-label>
+    </ion-item>
+
+    <ion-button (click)="verifyOTP()" expand="block" *ngIf="!spin">
+      Verify OTP
+    </ion-button>
+
+    <div class="ion-text-center" *ngIf="spin">
+      <ion-spinner color="primary"></ion-spinner>
+    </div>
+  </div>
+</ion-content>
+
+<!-- Dummy Footer -->
+<ion-footer class="ion-text-center">
+  <ion-toolbar>
+      <ion-note>
+          Before continue, Please read our <ion-text color="primary">
+              Privacy Policy & Terms
+          </ion-text>
+      </ion-note>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{categoryName}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid style="overflow: hidden;position: fixed;width: 100%;" *ngIf="products.length == 0">
+    <ion-row>
+      <ion-col size="6" *ngFor="let item of [0,1,2,3,4,5,6,7,8,9]">
+        <ion-skeleton-text animated style="width: 100%;height: 200px;"></ion-skeleton-text>
+      </ion-col>      
+    </ion-row>
+  </ion-grid>
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let product of products" class="product" (click)="viewProduct(product.id,product.name,product.img,product.price,product.company,product.category)">
+        <img src="{{product.img}}" alt="">
+        <ion-item lines="none">
+          <ion-label>
+            <h2>
+              {{product.name}}
+            </h2>
+            <p>
+              Price: {{product.price}}
+            </p>
+            <ion-note>{{product.company}}</ion-note>
+          </ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content>
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

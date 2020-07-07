@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Setup Name</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label position="floating">Display Name</ion-label>
+    <ion-input id="name"></ion-input>
+  </ion-item>
+
+  <ion-item lines="none">
+    <ion-label>
+      <ion-note>
+        Complete the signup by enter your name
+      </ion-note>
+    </ion-label>
+  </ion-item>
+
+  <ion-button (click)="finishSetup()" expand="block" *ngIf="!spin">
+    Finish Setup
+  </ion-button>
+
+  <div class="ion-text-center" *ngIf="spin">
+    <ion-spinner color="primary"></ion-spinner>
+  </div>
+</ion-content>

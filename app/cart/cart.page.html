@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Cart</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let product of products" class="product" (click)="viewProduct(product.id,product.name,product.img,product.price,product.company,product.category)">
+        <img src="{{product.img}}" alt="">
+        <ion-item lines="none">
+          <ion-label>
+            <h2>
+              {{product.name}}
+            </h2>
+            <p>
+              Price: {{product.price}}
+            </p>
+            <ion-note>{{product.company}}</ion-note>
+          </ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Empty Cart Content -->
+  <div class="center" *ngIf="products.length == 0">
+    <ion-icon name="cart-outline" style="font-size: 50px;"></ion-icon>
+    <br>
+    <ion-note>
+      No Products in Cart
+    </ion-note>
+    <br>
+    <ion-button (click)="goto()" fill="clear">
+      Start Shopping
+    </ion-button>
+  </div>
+</ion-content>
+
+<ion-footer *ngIf="products.length > 0">
+  <ion-toolbar>
+    <ion-button (click)="placeOrder()" expand="block" fill="clear">
+      Place Order
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Select Country Code</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar placeholder="Search Country Name or Code" (ionChange)="search($event)" animated mode="ios">
+  </ion-searchbar>
+
+  <!--All Country Codes -->
+  <ion-virtual-scroll [items]="countries">
+    <ion-item *virtualItem="let country" (click)="selectCode(country.dial_code)">
+      <img src="{{'/assets/flags/'+country.code+'.png'}}" style="width: 30px;" slot="start" alt="">
+      <ion-label>
+        <h2>
+          {{country.name}}
+        </h2>
+        <p>
+          {{country.code}}
+        </p>
+      </ion-label>
+      <ion-text color="primary" slot="end">
+        {{country.dial_code}}
+      </ion-text>
+    </ion-item>
+  </ion-virtual-scroll>
+
+</ion-content>

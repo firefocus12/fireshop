@@ -1,0 +1,95 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{productName}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <img src="{{productImg}}" id="pImg" alt="">
+    <h4 id="pName">
+      {{productName}}
+      <ion-badge color="primary" mode="md">{{productCategory}}</ion-badge>
+    </h4>
+    <p>{{productPrice}}</p>
+
+    <ion-button (click)="addToCart()" color="primary" fill="clear">
+      <ion-icon slot="start" name="cart-outline"></ion-icon>
+      {{cartText}}
+    </ion-button>
+    <ion-button color="secondary" fill="clear" (click)="buyNow()">
+      <ion-icon slot="start" name="pricetag-outline"></ion-icon>
+      Buy Now
+    </ion-button>
+
+    <ion-segment [(ngModel)]="segment" (ionChange)="changeSeg()">
+      <ion-segment-button value="relatedProducts">
+        <ion-label>Related</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="fromCompany">
+        <ion-label>From {{productCompany}}</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <!-- Related Products Content -->
+  <div *ngIf="segment =='relatedProducts'">
+    <!-- Spinner before loading data -->
+    <div class="ion-text-center ion-padding" *ngIf="related.length == 0">
+      <ion-spinner color="primary"></ion-spinner>
+    </div>
+
+    <!-- Same as home page products content -->
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" *ngFor="let product of related" class="product"
+          (click)="viewProduct(product.id,product.name,product.img,product.price,product.company,product.category)">
+          <img src="{{product.img}}" alt="">
+          <ion-item lines="none">
+            <ion-label>
+              <h2>
+                {{product.name}}
+              </h2>
+              <p>
+                Price: {{product.price}}
+              </p>
+              <ion-note>{{product.company}}</ion-note>
+            </ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <!-- Products from that company -->
+  <div *ngIf="segment =='fromCompany'">
+    <!-- Spinner before loading data -->
+    <div class="ion-text-center ion-padding" *ngIf="from.length == 0">
+      <ion-spinner color="primary"></ion-spinner>
+    </div>
+
+    <!-- Same as home page products content -->
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" *ngFor="let product of from" class="product"
+          (click)="viewProduct(product.id,product.name,product.img,product.price,product.company,product.category)">
+          <img src="{{product.img}}" alt="">
+          <ion-item lines="none">
+            <ion-label>
+              <h2>
+                {{product.name}}
+              </h2>
+              <p>
+                Price: {{product.price}}
+              </p>
+              <ion-note>{{product.company}}</ion-note>
+            </ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

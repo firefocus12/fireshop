@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Place Order</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-item *ngFor="let cart of carts" lines="none">
+  <ion-avatar slot="start">
+    <img src="{{cart.img}}" />
+  </ion-avatar>
+  <ion-label>
+    <h2>
+      {{cart.name}}
+    </h2>
+    <p>
+      {{cart.price}}
+    </p>
+  </ion-label>
+</ion-item>
+</ion-content>
+<ion-footer class="ion-padding">
+  <ion-toolbar>
+    <ion-button (click)="placeOrder()" expand="block">
+      Place Order ${{totalCost}}
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

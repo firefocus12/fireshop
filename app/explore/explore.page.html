@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Explore</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list-header>
+    <ion-label>Top Categoris</ion-label>
+  </ion-list-header>
+  <ion-item lines="none" *ngFor="let category of categories" (click)="exploreCategory(category.name)">
+    <ion-icon slot="start" name="{{category.icon}}" color="{{category.color}}"></ion-icon>
+    <ion-label>
+      <h2>
+        {{category.name}}
+      </h2>
+    </ion-label>
+  </ion-item>  
+</ion-content>

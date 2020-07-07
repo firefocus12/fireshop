@@ -1,0 +1,23 @@
+<ion-tabs>
+
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home" (click)="changeTab('tab1')">
+      <ion-icon name="home-outline" *ngIf="tab !='tab1'"></ion-icon>
+      <ion-icon name="home" *ngIf="tab =='tab1'"></ion-icon>
+      <ion-label>Home</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="explore" (click)="changeTab('tab2')">
+      <ion-icon name="grid-outline" *ngIf="tab != 'tab2'"></ion-icon>
+      <ion-icon name="grid" *ngIf="tab == 'tab2'"></ion-icon>
+      <ion-label>Explore</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="profile" (click)="changeTab('tab3')">
+      <ion-icon name="person-outline" *ngIf="tab!= 'tab3'"></ion-icon>
+      <ion-icon name="person" *ngIf="tab== 'tab3'"></ion-icon>
+      <ion-label>Profile</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+
+</ion-tabs>
